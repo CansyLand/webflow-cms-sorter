@@ -18,13 +18,13 @@ export async function middleware(request){
     return new NextResponse(null, {
       headers: {
         'Access-Control-Allow-Origin': "*",
-        'Access-Control-Allow-Methods': 'GET',
-        'Access-Control-Allow-Headers': 'Content-Type',
+        'Access-Control-Allow-Methods': 'GET, PATCH',
+        'Access-Control-Allow-Headers': 'Content-Type, ngrok-skip-browser-warning'
       },
     });
   }
     else {
-      console.error("TEST ERROR")
+      // console.error("OPTIONS TEST ERROR")
     }
   
   if (request.nextUrl.pathname === '/webflow_redirect' && request.nextUrl.searchParams.get('code')) {
