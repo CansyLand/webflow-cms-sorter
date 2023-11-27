@@ -1,6 +1,6 @@
 # Webflow CMS Sorter
 
-This is an Webflow hybrid-app that alow you to sort your collection via drag and drop.
+This is a Webflow hybrid app that allows you to sort your collection via drag and drop.
 
 ![hybrid app demo](/public/screenshot.gif)
 
