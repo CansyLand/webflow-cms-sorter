@@ -33,6 +33,10 @@ const CollectionManager: React.FC<CollectionProp> = ({ token }) => {
     setPage("collection-sort");
   };
 
+  const collectionName = selectedCollection
+    ? selectedCollection.displayName
+    : "";
+
   let content;
   switch (page) {
     case "collection-overview":
@@ -55,6 +59,10 @@ const CollectionManager: React.FC<CollectionProp> = ({ token }) => {
       content = <div>Default Content</div>;
   }
 
+  const handleDisconnect = () => {
+    localStorage.removeItem("devflow_token");
+  };
+
   return (
     <motion.div
       className=""
@@ -66,11 +74,19 @@ const CollectionManager: React.FC<CollectionProp> = ({ token }) => {
       <HeaderBar
         page={page}
         setPage={setPage}
-        collectionName={
-          selectedCollection ? selectedCollection.displayName : ""
-        }
+        collectionName={collectionName}
       ></HeaderBar>
       <CollectionLayout>{content}</CollectionLayout>
+      {collectionName === "" && (
+        <div className="flex justify-center mt-4 mb-4">
+          <button
+            className="bg-black text-white border border-white py-2 px-4 mt-12 rounded hover:bg-red-700 transition duration-300"
+            onClick={handleDisconnect}
+          >
+            Disconnect App
+          </button>
+        </div>
+      )}
     </motion.div>
   );
 };

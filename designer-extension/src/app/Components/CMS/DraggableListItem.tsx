@@ -27,7 +27,7 @@ const DraggableListItem: React.FC<DraggableListItemProps> = ({
           ref={provided.innerRef}
           {...provided.draggableProps}
           {...provided.dragHandleProps}
-          className={`draggable-item border-b border-gray-300 h-12 flex align-center ${itemClass}`}
+          className={`draggable-item border-b border-gray-300 h-12 flex align-center cursor-grab hover:opacity-75 ${itemClass}`}
         >
           <span className="drag-handle">☰</span>
           <h3>{item.fieldData.name}</h3>
